@@ -1,0 +1,11 @@
+### IntelliJ IDEA ###
+target/
+dist/
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### NodeJS ###
+node_modules/
+build/

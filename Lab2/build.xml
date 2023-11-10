@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="AS_LKE42_2" default="deploy" basedir=".">
+    <property name="src.dir" location="src/main/java"/>
+    <property name="web.dir" location="src/main/webapp"/>
+    <property name="dist.dir" location="dist"/>
+    <property name="server.dir" location="C:\Program Files\Apache\apache-tomcat-10.1.11"/>
+    <target name="init">
+        <delete dir="${dist.dir}"/>
+        <mkdir dir="${dist.dir}"/>
+        <mkdir dir="${dist.dir}/classes"/>
+    </target>
+    <target name="compile" depends="init">
+        <javac srcdir="${src.dir}" destdir="${dist.dir}/classes">
+            <classpath>
+                <fileset dir="${server.dir}/lib"/>
+            </classpath>
+        </javac>
+    </target>
+    <target name="war" depends="compile">
+        <war destfile="${dist.dir}/${ant.project.name}.war" webxml="${web.dir}/WEB-INF/web.xml">
+            <classes dir="${dist.dir}/classes"/>
+            <fileset dir="${web.dir}"/>
+        </war>
+    </target>
+    <target name="deploy" depends="war">
+        <unwar dest="${server.dir}/webapps/${ant.project.name}" src="${dist.dir}/${ant.project.name}.war"/>
+        <echo message="Application deployed to web server!"/>
+    </target>
+</project>

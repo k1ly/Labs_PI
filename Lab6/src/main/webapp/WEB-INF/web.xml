@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+    <context-param>
+        <param-name>URL1</param-name>
+        <param-value>page.html</param-value>
+    </context-param>
+    <context-param>
+        <param-name>URL2</param-name>
+        <param-value>servlet</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>servlet</servlet-name>
+        <servlet-class>by.belstu.it.lyskov.lab6.Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servlet</servlet-name>
+        <url-pattern>/servlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>urln</servlet-name>
+        <servlet-class>by.belstu.it.lyskov.lab6.UrlnServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>urln</servlet-name>
+        <url-pattern>/urln</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ccc</servlet-name>
+        <servlet-class>by.belstu.it.lyskov.lab6.Ccc</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ccc</servlet-name>
+        <url-pattern>/GoCcc</url-pattern>
+    </servlet-mapping>
+</web-app>

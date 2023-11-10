@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <style>
+        .h1 {
+            visibility: visible;
+            color: red
+        }
+
+        .h2 {
+            visibility: hidden
+        }
+    </style>
+</head>
+<body>
+<script src="crReq.js"></script>
+<script src="header.js"></script>
+<script src="xml.js"></script>
+<script src="json.js"></script>
+<h1>AJAX Example (Header)</h1>
+<form id="headerForm">
+    <input name="x" value="0" size="5" maxlength="5"/>
+    <input name="y" value="0" size="5" maxlength="5"/>
+    <input type="button" value="Add" size="10" maxlength="10"
+           onclick="requestHeader(this.form.x.value, this.form.y.value, document.getElementById('z'))"/>
+    <input id="z" name="z" value="0"/>
+</form>
+<h1>AJAX Example (XML)</h1>
+<form id="xmlForm">
+    <input name="n" value="0" size="2" maxlength="2"/>
+    <input type="button" value="Rand" size="10" maxlength="10"
+           onclick="requestXML(this.form.n.value, document.getElementById('xml'))"/>
+    <div id="xml" class="h2">.....</div>
+</form>
+<h1>AJAX Example (JSON)</h1>
+<form id="jsonForm">
+    <input name="n" value="0" size="2" maxlength="2"/>
+    <input type="button" value="Rand" size="10" maxlength="10"
+           onclick="requestJSON(this.form.n.value, document.getElementById('json'))"/>
+    <div id="json" class="h2">.....</div>
+</form>
+<h1>AJAX (Sync/Async)</h1>
+<form>
+    <input type="button" value="Sync" onclick="doRequests(false)"/>
+    <input type="button" value="Async" onclick="doRequests(true)"/>
+</form>
+<script>
+    let isRequestAsync = false;
+
+    function doRequests(isAsync) {
+        isRequestAsync = isAsync;
+        let headerForm = document.getElementById('headerForm');
+        requestHeader(headerForm.x.value, headerForm.y.value, document.getElementById('z'));
+        let xmlForm = document.getElementById('xmlForm');
+        requestXML(xmlForm.n.value, document.getElementById('xml'));
+        let jsonForm = document.getElementById('jsonForm');
+        requestJSON(jsonForm.n.value, document.getElementById('json'));
+    }
+</script>
+</body>
+</html>

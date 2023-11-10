@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="AS_LKE42_4" default="deploy" basedir=".">
+    <property name="src.dir" location="src/main/java"/>
+    <property name="web.dir" location="src/main/webapp"/>
+    <property name="dist.dir" location="dist"/>
+    <property name="server.dir" location="C:\Program Files\Apache\apache-tomcat-10.1.11"/>
+    <property name="maven.dir" location="C:\Users\Kirill\.m2\repository"/>
+    <target name="init">
+        <delete dir="${dist.dir}"/>
+        <mkdir dir="${dist.dir}"/>
+        <mkdir dir="${dist.dir}/classes"/>
+        <mkdir dir="${dist.dir}/lib"/>
+    </target>
+    <target name="compile" depends="init">
+        <copy todir="${dist.dir}/lib" file="${maven.dir}/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.jar"/>
+        <copy todir="${dist.dir}/lib" file="${maven.dir}/commons-logging/commons-logging/1.2/commons-logging-1.2.jar"/>
+        <copy todir="${dist.dir}/lib" file="${maven.dir}/commons-codec/commons-codec/1.15/commons-codec-1.15.jar"/>
+        <javac srcdir="${src.dir}" destdir="${dist.dir}/classes">
+            <classpath>
+                <fileset dir="${server.dir}/lib"/>
+                <fileset dir="${dist.dir}/lib"/>
+            </classpath>
+        </javac>
+    </target>
+    <target name="war" depends="compile">
+        <war destfile="${dist.dir}/${ant.project.name}.war" webxml="${web.dir}/WEB-INF/web.xml">
+            <lib dir="${dist.dir}/lib"/>
+            <classes dir="${dist.dir}/classes"/>
+            <fileset dir="${web.dir}"/>
+        </war>
+    </target>
+    <target name="deploy" depends="war">
+        <unwar dest="${server.dir}/webapps/${ant.project.name}" src="${dist.dir}/${ant.project.name}.war"/>
+        <echo message="Application deployed to web server!"/>
+    </target>
+</project>

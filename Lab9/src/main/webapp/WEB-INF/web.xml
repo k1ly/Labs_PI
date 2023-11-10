@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+    <servlet>
+        <servlet-name>ccc</servlet-name>
+        <servlet-class>by.belstu.it.lyskov.lab9.Ccc</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ccc</servlet-name>
+        <url-pattern>/GoCcc</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>f1</filter-name>
+        <filter-class>by.belstu.it.lyskov.lab9.F1</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>f1</filter-name>
+        <servlet-name>ccc</servlet-name>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>f2</filter-name>
+        <filter-class>by.belstu.it.lyskov.lab9.F2</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>f2</filter-name>
+        <servlet-name>ccc</servlet-name>
+        <url-pattern>/Ccc.jsp</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>f3</filter-name>
+        <filter-class>by.belstu.it.lyskov.lab9.F3</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>f3</filter-name>
+        <servlet-name>ccc</servlet-name>
+    </filter-mapping>
+
+    <listener>
+        <listener-class>by.belstu.it.lyskov.lab9.L1</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>by.belstu.it.lyskov.lab9.L2</listener-class>
+    </listener>
+</web-app>

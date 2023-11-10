@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+    <context-param>
+        <param-name>doc-dir</param-name>
+        <param-value>C:\Users\Kirill\Documents\Labs\Java\Lab13\files</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>msDoc</servlet-name>
+        <servlet-class>by.belstu.it.lyskov.lab13.MsDoc</servlet-class>
+        <multipart-config>
+            <max-file-size>10485760</max-file-size>
+            <max-request-size>20971520</max-request-size>
+            <file-size-threshold>5242880</file-size-threshold>
+        </multipart-config>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>msDoc</servlet-name>
+        <url-pattern>/MsDoc</url-pattern>
+    </servlet-mapping>
+</web-app>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<fieldset>
+    <legend>GET</legend>
+    <div><a href="GoSss?request=forwardToServlet">Forward to servlet</a></div>
+    <div><a href="GoSss?request=forwardToPage">Forward to page</a></div>
+    <div><a href="GoSss?request=redirectToServlet">Redirect to servlet</a></div>
+    <div><a href="GoSss?request=redirectToPage">Redirect to page</a></div>
+    <div><a href="GoSss?request=httpClient">Http client</a></div>
+</fieldset>
+<fieldset>
+    <legend>POST</legend>
+    <form action="GoSss" method="post">
+        <select name="request">
+            <option value="forwardToServlet">Forward to servlet</option>
+            <option value="forwardToPage">Forward to page</option>
+            <option value="redirectToServlet">Redirect to servlet</option>
+            <option value="redirectToPage">Redirect to page</option>
+            <option value="httpClient">Http Client</option>
+        </select>
+        <input type="submit" value="SSS"/>
+    </form>
+</fieldset>
+</body>
+</html>

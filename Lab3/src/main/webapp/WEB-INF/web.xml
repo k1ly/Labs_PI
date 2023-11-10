@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+    <servlet>
+        <servlet-name>sss</servlet-name>
+        <servlet-class>by.belstu.it.lyskov.lab3.Sss</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sss</servlet-name>
+        <url-pattern>/GoSss</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ggg</servlet-name>
+        <servlet-class>by.belstu.it.lyskov.lab3.Ggg</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ggg</servlet-name>
+        <url-pattern>/GoGgg</url-pattern>
+    </servlet-mapping>
+</web-app>
